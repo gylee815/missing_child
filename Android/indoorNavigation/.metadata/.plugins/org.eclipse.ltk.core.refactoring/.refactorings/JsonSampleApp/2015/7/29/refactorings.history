@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;JsonSampleApp/res/drawable-hdpi/indoorNavigation.jpg&apos; to &apos;indoornavigation.jpg&apos;" description="Rename resource &apos;indoorNavigation.jpg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-hdpi/indoorNavigation.jpg" name="indoornavigation.jpg" stamp="1436958851633" updateReferences="true"/>
+</session>

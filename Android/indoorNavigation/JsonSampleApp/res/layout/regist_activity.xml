@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="380dp" android:weightSum="1">
+	    <Button
+	        android:id="@+id/regist"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.5"
+	        android:text="회원가입" />
+	
+	    <Button
+	        android:id="@+id/back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"        
+	        android:layout_weight="0.5"
+	        android:text="뒤로가기" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="90dp"
+        android:textSize="12sp"
+        android:text="중복확인" />
+		
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="이름"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/name1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="30dp"
+        android:hint="이름 입력"
+        android:singleLine="true" >
+    </EditText>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="ID"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/id1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="90dp"
+        android:hint="ID 입력"
+        android:singleLine="true" >
+    </EditText>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:hint="Password"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/pwd1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="150dp"
+        android:hint="Password 입력"
+        android:singleLine="true" >
+    </EditText>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:hint="Age"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/age1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="210dp"
+        android:hint="생년월일 "
+        android:onClick="onClick"
+        android:singleLine="true"
+        android:cursorVisible="false"
+		android:focusableInTouchMode="false" >
+    </EditText>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:hint="Phone"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/phone1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="270dp"
+        android:hint="-빼고 입력해주세요"
+        android:maxLength="8"
+        android:singleLine="true"
+	    android:inputType="number" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/pnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" >
+    </TextView>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="220dp"
+        android:layout_marginTop="270dp"
+        android:drawSelectorOnTop="true" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:hint="Sex"
+        android:singleLine="true" >
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="200dp"
+        android:layout_marginTop="330dp"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:checked="true"
+            android:text="남" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="여" >
+        </RadioButton>
+    </RadioGroup>
+
+</RelativeLayout>

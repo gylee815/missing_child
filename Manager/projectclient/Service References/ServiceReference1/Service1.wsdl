@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://61.81.99.71:8080/RestService/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://61.81.99.71:8080/RestService/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://61.81.99.71:8080/RestService/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_WhoisLogon_InputMessage">
+    <wsdl:part name="parameters" element="tns:WhoisLogon" />
+  </wsdl:message>
+  <wsdl:message name="IService1_WhoisLogon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WhoisLogonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_relationmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:relationmember" />
+  </wsdl:message>
+  <wsdl:message name="IService1_relationmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:relationmemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MyPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:MyPosition" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MyPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MyPositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TimeToXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:TimeToXml" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TimeToXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TimeToXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MissingLogon_InputMessage">
+    <wsdl:part name="parameters" element="tns:MissingLogon" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MissingLogon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MissingLogonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Missingmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:Missingmember" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Missingmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MissingmemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LoadDayTo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDayTo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LoadDayTo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDayToResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_admininsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:admininsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_admininsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:admininsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminselect_InputMessage">
+    <wsdl:part name="parameters" element="tns:adminselect" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminselect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:adminselectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminupdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:adminupdate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminupdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:adminupdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_admindelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:admindelete" />
+  </wsdl:message>
+  <wsdl:message name="IService1_admindelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:admindeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminidcheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:adminidcheck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_adminidcheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:adminidcheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insertmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertmember" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insertmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertmemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_returnmem_InputMessage">
+    <wsdl:part name="parameters" element="tns:returnmem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_returnmem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:returnmemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_returnnamejpg_InputMessage">
+    <wsdl:part name="parameters" element="tns:returnnamejpg" />
+  </wsdl:message>
+  <wsdl:message name="IService1_returnnamejpg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:returnnamejpgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Logoutmember_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logoutmember" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Logoutmember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutmemberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="WhoisLogon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/WhoisLogon" message="tns:IService1_WhoisLogon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/WhoisLogonResponse" message="tns:IService1_WhoisLogon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="relationmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/relationmember" message="tns:IService1_relationmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/relationmemberResponse" message="tns:IService1_relationmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MyPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MyPosition" message="tns:IService1_MyPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MyPositionResponse" message="tns:IService1_MyPosition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeToXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TimeToXml" message="tns:IService1_TimeToXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TimeToXmlResponse" message="tns:IService1_TimeToXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MissingLogon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MissingLogon" message="tns:IService1_MissingLogon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MissingLogonResponse" message="tns:IService1_MissingLogon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Missingmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Missingmember" message="tns:IService1_Missingmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MissingmemberResponse" message="tns:IService1_Missingmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDayTo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoadDayTo" message="tns:IService1_LoadDayTo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoadDayToResponse" message="tns:IService1_LoadDayTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="admininsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/admininsert" message="tns:IService1_admininsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/admininsertResponse" message="tns:IService1_admininsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="adminselect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/adminselect" message="tns:IService1_adminselect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/adminselectResponse" message="tns:IService1_adminselect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="adminupdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/adminupdate" message="tns:IService1_adminupdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/adminupdateResponse" message="tns:IService1_adminupdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="admindelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/admindelete" message="tns:IService1_admindelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/admindeleteResponse" message="tns:IService1_admindelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="adminidcheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/adminidcheck" message="tns:IService1_adminidcheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/adminidcheckResponse" message="tns:IService1_adminidcheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insertmember" message="tns:IService1_Insertmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertmemberResponse" message="tns:IService1_Insertmember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="returnmem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/returnmem" message="tns:IService1_returnmem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/returnmemResponse" message="tns:IService1_returnmem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="returnnamejpg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/returnnamejpg" message="tns:IService1_returnnamejpg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/returnnamejpgResponse" message="tns:IService1_returnnamejpg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logoutmember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logoutmember" message="tns:IService1_Logoutmember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogoutmemberResponse" message="tns:IService1_Logoutmember_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#WSHttpBinding_IService1_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WhoisLogon">
+      <soap12:operation soapAction="http://tempuri.org/IService1/WhoisLogon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="relationmember">
+      <soap12:operation soapAction="http://tempuri.org/IService1/relationmember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MyPosition">
+      <soap12:operation soapAction="http://tempuri.org/IService1/MyPosition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeToXml">
+      <soap12:operation soapAction="http://tempuri.org/IService1/TimeToXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MissingLogon">
+      <soap12:operation soapAction="http://tempuri.org/IService1/MissingLogon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Missingmember">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Missingmember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDayTo">
+      <soap12:operation soapAction="http://tempuri.org/IService1/LoadDayTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="admininsert">
+      <soap12:operation soapAction="http://tempuri.org/IService1/admininsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adminselect">
+      <soap12:operation soapAction="http://tempuri.org/IService1/adminselect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adminupdate">
+      <soap12:operation soapAction="http://tempuri.org/IService1/adminupdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="admindelete">
+      <soap12:operation soapAction="http://tempuri.org/IService1/admindelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adminidcheck">
+      <soap12:operation soapAction="http://tempuri.org/IService1/adminidcheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertmember">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Insertmember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnmem">
+      <soap12:operation soapAction="http://tempuri.org/IService1/returnmem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnnamejpg">
+      <soap12:operation soapAction="http://tempuri.org/IService1/returnnamejpg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logoutmember">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Logoutmember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="WSHttpBinding_IService1" binding="tns:WSHttpBinding_IService1">
+      <soap12:address location="http://61.81.99.71:8080/RestService/Service1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://61.81.99.71:8080/RestService/Service1.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

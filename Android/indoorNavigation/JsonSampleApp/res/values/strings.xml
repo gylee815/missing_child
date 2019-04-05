@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JsonSampleApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="GYRO">Gyroscope 설정</string>
+	<string name="MCD">미아 설정</string>
+	<string name="ID2">관계인 설정</string>
+    
+</resources>

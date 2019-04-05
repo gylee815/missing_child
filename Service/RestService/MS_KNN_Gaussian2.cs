@@ -1,0 +1,281 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+
+namespace RestService
+{
+    public class MS_KNN_Gaussian2
+    {
+        private void Swap(ref double x, ref double y)
+        {
+            double temp = x;
+            x = y;
+            y = temp;
+        }
+        private void Quick_Sort(double[,] arr, int left, int right)
+        {
+            if (right > left)
+            {
+                double temp = arr[0, left], j = left;
+                for (int i = left + 1; i <= right; i++)
+                    if (arr[0, i] < temp)
+                    {
+                        j++;
+                        Swap(ref arr[0, i], ref arr[0, (int)j]);
+                        Swap(ref arr[1, i], ref arr[1, (int)j]);
+                    }
+                temp = j;
+                Swap(ref arr[0, left], ref arr[0, (int)temp]);
+                Swap(ref arr[1, left], ref arr[1, (int)temp]);
+
+                Quick_Sort(arr, left, (int)temp - 1);
+                Quick_Sort(arr, (int)temp + 1, right);
+            }
+        }
+
+        private void kNN_Cal(Decimal[] rssi, double[] sum, DataColumnCollection column, DataRowCollection rows, double[,] temp, double[] comp, int[] Rm, DataTable knn)
+        {
+            int i = 0;
+            int j = 0;
+
+            foreach (DataRow dr in rows)
+            {
+                for (i = 0; i < 5; i++)
+                {
+                    sum[j] += Math.Pow(Convert.ToDouble(rssi[i]) - Convert.ToDouble(dr[i + 1]), 2.0);
+                }
+                temp[0, j] = Math.Sqrt(sum[j]);
+                temp[1, j] = Convert.ToDouble(dr[0]);
+                j++;
+            }
+            Quick_Sort(temp, 0, j - 1);
+
+            for (i = 0; i < 3; i++)
+            {
+                Rm[i] = Convert.ToInt32(temp[1, i]);
+            }
+
+
+            DataRow kr = null;
+
+            knn.Columns.Add(new DataColumn("RP", typeof(int)));
+            knn.Columns.Add(new DataColumn("AP1", typeof(double)));
+            knn.Columns.Add(new DataColumn("AP2", typeof(double)));
+            knn.Columns.Add(new DataColumn("AP3", typeof(double)));
+            knn.Columns.Add(new DataColumn("AP4", typeof(double)));
+            knn.Columns.Add(new DataColumn("AP5", typeof(double)));
+            knn.Columns.Add(new DataColumn("X", typeof(int)));
+            knn.Columns.Add(new DataColumn("Y", typeof(int)));
+
+            foreach (DataRow dr in rows)
+            {
+                if (Convert.ToDouble(dr[0]) == Rm[0])
+                {
+                    kr = knn.NewRow();
+                    kr.ItemArray = new object[8] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7] };
+                    knn.Rows.Add(kr);
+                    break;
+                }
+            }
+            foreach (DataRow dr in rows)
+            {
+                if (Convert.ToDouble(dr[0]) == Rm[1])
+                {
+                    kr = knn.NewRow();
+                    kr.ItemArray = new object[8] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7] };
+                    knn.Rows.Add(kr);
+                    break;
+                }
+            }
+            foreach (DataRow dr in rows)
+            {
+                if (Convert.ToDouble(dr[0]) == Rm[2])
+                {
+                    kr = knn.NewRow();
+                    kr.ItemArray = new object[8] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7] };
+                    knn.Rows.Add(kr);
+                    break;
+                }
+            }
+            //datarowcollection 으로 Rp번호 3개를 행으로 찾게 하여 데이터를 가져와라
+        }
+
+        private void mDiv_Cal(int[] Rm, double[,] mDiv, double[] mAvg, DataTable knn)
+        {
+            int i = 0;
+            int j = 0;
+
+            foreach (DataRow kr in knn.Rows)
+            {
+                for (i = 0; i < 5; i++)
+                {
+                    mAvg[j] += Convert.ToDouble(kr[i + 1]);
+                }
+                mAvg[j] = mAvg[j] / 5;
+                j++;
+            }
+            j = 0;
+            foreach (DataRow kr in knn.Rows)
+            {
+                for (i = 0; i < 5; i++)
+                {
+                    mDiv[j, i] = Math.Abs(Convert.ToDouble(kr[i + 1]) - mAvg[j]);
+                }
+                j++;
+            }
+        }
+
+        private void Gauss_Cal(Decimal[] rssi, double[,] Gauss, DataTable knn, int[] Rm, double[,] mDiv)
+        {
+            int i = 0;
+            int j = 0;
+
+            foreach (DataRow kr in knn.Rows)
+            {
+                for (i = 0; i < 5; i++)
+                {
+                    Gauss[j, i] = (Math.Exp(Math.Pow(Convert.ToDouble(rssi[i]) - Convert.ToDouble(kr[i + 1]), 2) /
+                        (-2 * Math.Pow(mDiv[j, i], 2)))) / (Math.Sqrt(2 * Math.PI) * mDiv[j, i]);
+                }
+                j++;
+            }
+            for (i = 0; i < 3; i++)
+            {
+                for (j = 0; j < 5; j++)
+                {
+                    if (double.IsNaN(Gauss[i, j]))
+                        Gauss[i, j] = 1;
+                }
+            }
+        }
+
+        private void G_Avg_Cal(double[] G_Avg, double[,] f, double[] G_Sum, double[] G_add, double[,] Gauss, int[] Rm, DataTable knn)
+        {
+            int i = 0;
+            int j = 0;
+            foreach (DataRow kr in knn.Rows)
+            {
+                for (j = 0; j < 5; j++)
+                    f[i, j] = Convert.ToDouble(kr[j + 1]) * Gauss[i, j];
+                i++;
+            }
+            for (i = 0; i < 5; i++)
+            {
+                for (j = 0; j < 3; j++)
+                {
+                    G_Sum[i] += f[j, i];
+                    G_add[i] += Gauss[j, i];
+                }
+            }
+            for (i = 0; i < 5; i++)
+            {
+                G_Avg[i] = G_Sum[i] / G_add[i];
+            }
+        }
+
+        private void Result(double[] new1, double[] G_Avg, int[] Rm, DataTable knn, double[,] tempd)
+        {
+            int i = 0;
+            int j = 0;
+            foreach (DataRow kr in knn.Rows)
+            {
+                for (j = 0; j < 5; j++)
+                {
+                    new1[i] += Math.Pow(G_Avg[j] - Convert.ToDouble(kr[j + 1]), 2);
+                }
+                tempd[0, i] = Math.Sqrt(new1[i]);//값을 저장
+                tempd[1, i] = Rm[i];//RP번호 저장
+                tempd[2, i] = Convert.ToDouble(kr[6]);
+                tempd[3, i] = Convert.ToDouble(kr[7]);
+                i++;
+            }
+        }
+
+        private void bubble(int tempCount, double hold, int loop, double[,] tempd)
+        {
+            int i;
+
+            for (loop = 0; loop < tempCount - 1; loop++)
+            {
+                for (i = 0; i < tempCount - 1 - loop; i++)
+                {
+                    if (tempd[0, i] > tempd[0, i + 1])
+                    {   //거리값 정렬
+                        hold = tempd[0, i];
+                        tempd[0, i] = tempd[0, i + 1];
+                        tempd[0, i + 1] = hold;
+                        //거리값에 따른 RP번호 정렬
+                        hold = tempd[1, i];
+                        tempd[1, i] = tempd[1, i + 1];
+                        tempd[1, i + 1] = hold;
+                        //거리값에 따른 X 정렬
+                        hold = tempd[2, i];
+                        tempd[2, i] = tempd[2, i + 1];
+                        tempd[2, i + 1] = hold;
+                        //거리값에 따른 Y 정렬
+                        hold = tempd[3, i];
+                        tempd[3, i] = tempd[3, i + 1];
+                        tempd[3, i + 1] = hold;
+                    }
+                }
+            }
+        }
+
+        public int[] Calc_Result(Decimal[] ARR_AP, DataTable table)
+        {
+            int i;
+            DataTable dt = table;
+
+            DataColumnCollection column = dt.Columns;
+            DataRowCollection rows = dt.Rows;
+
+            Decimal[] rssi = new Decimal[5];
+
+            for (i = 0; i < 5; i++)
+            {
+                rssi[i] = ARR_AP[i];
+            }
+
+            double[] sum = new double[dt.Rows.Count];
+            double[,] temp = new double[2, dt.Rows.Count];
+            int[] Rm = new int[3];
+            double[] comp = new double[3];
+            DataTable knn = new DataTable("kNN_No.3");
+            kNN_Cal(rssi, sum, column, rows, temp, comp, Rm, knn);
+
+            double[,] mDiv = new double[3, 5];
+            double[] mAvg = new double[3];
+            mDiv_Cal(Rm, mDiv, mAvg, knn);
+
+            double[,] Gauss = new double[3, 5];
+            Gauss_Cal(rssi, Gauss, knn, Rm, mDiv);
+            //==========================================가중평균=============================================//
+            double[] G_Avg = new double[5];     //  최죵적인 결과 가중평균을 통해 예측 수신세기 도출                 
+            double[,] f = new double[3, 5];     //  데이터 * 가중치 
+            double[] G_Sum = new double[5];     //  (데이터 * 가중치) 들의 합
+            double[] G_add = new double[5];     //  가중치 합
+            G_Avg_Cal(G_Avg, f, G_Sum, G_add, Gauss, Rm, knn);
+            //==================================== 예측값으로 kNN 구하기 ====================================//
+            double[] new1 = new double[3];
+            double[,] tempd = new double[4, 3];
+            double compv, compn, compx, compy;
+            Result(new1, G_Avg, Rm, knn, tempd);
+            //==========================================정렬=================================================//
+            int tempCount = 3;
+            double hold = 0;
+            int loop = 0;
+            bubble(tempCount, hold, loop, tempd);
+            //====================================가장 가까운 RP 1개=========================================//            
+            compv = tempd[0, 0];
+            compn = tempd[1, 0];
+            compx = tempd[2, 0];
+            compy = tempd[3, 0];
+
+            int[] position = new int[] { Convert.ToInt32(compx), Convert.ToInt32(compy) };
+            return position;
+        }
+    }
+}

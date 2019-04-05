@@ -1,0 +1,42 @@
+C:\Users\WB\Desktop\projectclient\projectclient\bin\Debug\projectclient.exe.config
+C:\Users\WB\Desktop\projectclient\projectclient\bin\Debug\projectclient.exe
+C:\Users\WB\Desktop\projectclient\projectclient\bin\Debug\projectclient.pdb
+C:\Users\WB\Desktop\projectclient\projectclient\bin\Debug\ShadowEngine.dll
+C:\Users\WB\Desktop\projectclient\projectclient\obj\Debug\projectclient.MainForm.resources
+C:\Users\WB\Desktop\projectclient\projectclient\obj\Debug\projectclient.Properties.Resources.resources
+C:\Users\WB\Desktop\projectclient\projectclient\obj\Debug\projectclient.csproj.GenerateResource.Cache
+C:\Users\WB\Desktop\projectclient\projectclient\obj\Debug\projectclient.exe
+C:\Users\WB\Desktop\projectclient\projectclient\obj\Debug\projectclient.pdb
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\bin\Debug\projectclient.exe.config
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\bin\Debug\projectclient.exe
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\bin\Debug\projectclient.pdb
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.MainForm.resources
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.Properties.Resources.resources
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.csproj.GenerateResource.Cache
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.exe
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.pdb
+C:\Users\WB\Desktop\G\projectclient왜안되지\projectclient\obj\Debug\projectclient.csprojResolveAssemblyReference.cache
+C:\Users\WB\Desktop\G\projectclient\projectclient\bin\Debug\projectclient.exe.config
+C:\Users\WB\Desktop\G\projectclient\projectclient\bin\Debug\projectclient.exe
+C:\Users\WB\Desktop\G\projectclient\projectclient\bin\Debug\projectclient.pdb
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.MainForm.resources
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.Manager.resources
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.Properties.Resources.resources
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.S_Time.resources
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.csproj.GenerateResource.Cache
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.exe
+C:\Users\WB\Desktop\G\projectclient\projectclient\obj\Debug\projectclient.pdb
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\bin\Debug\projectclient.exe.config
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\bin\Debug\projectclient.exe
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\bin\Debug\projectclient.pdb
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.MainForm.resources
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.Manager.resources
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.Properties.Resources.resources
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.S_Time.resources
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.csproj.GenerateResource.Cache
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.exe
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.pdb
+C:\Users\62\Desktop\projectclient서버연결변경\projectclient\obj\Debug\projectclient.csprojResolveAssemblyReference.cache
+C:\Users\KiYean\Documents\wifi기반 미아방지 솔루션\4. 프로젝트 소스\매니저\projectclient\bin\Debug\projectclient.exe.config
+C:\Users\KiYean\Documents\wifi기반 미아방지 솔루션\4. 프로젝트 소스\매니저\projectclient\obj\Debug\projectclient.exe
+C:\Users\KiYean\Documents\wifi기반 미아방지 솔루션\4. 프로젝트 소스\매니저\projectclient\obj\Debug\projectclient.pdb

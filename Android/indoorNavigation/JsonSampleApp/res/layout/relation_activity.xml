@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="관계인의 정보를 입력해주세요.\n\n" />
+    
+    <LinearLayout android:id="@+id/LinearLayoutRelationID"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="1">
+    <TextView
+        android:id="@+id/id2_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="관계인 ID"/>   
+    <EditText android:hint="관계인 ID" 
+	    android:id="@+id/rela_id_edit"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:layout_weight="0.7"
+	    android:singleLine="true"/>
+    </LinearLayout>
+
+     
+    
+    <TextView
+        android:id="@+id/id2_textview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\n\n사용자님은 관계자님의...\n"/>  
+
+		<RadioGroup
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:id="@+id/radioGroup1">
+			<RadioButton
+				android:text="보호자"
+				android:layout_width="wrap_content"
+				android:id="@+id/radio1"
+				android:checked="true"
+				android:layout_height="wrap_content"></RadioButton>
+			<RadioButton
+				android:text="피보호자"
+				android:layout_width="wrap_content"
+				android:id="@+id/radio2"
+				android:layout_height="wrap_content"></RadioButton>
+		</RadioGroup>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\n\n\n\n" />
+
+<LinearLayout android:id="@+id/LinearLayout05"
+    android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<Button
+        android:id="@+id/accept_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick3"
+        android:text="요청 수락" />
+</LinearLayout>
+
+<LinearLayout android:id="@+id/LinearLayout04"
+    android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/id2_setting_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_weight="1"
+        android:onClick="onClick3"
+        android:text="관계요청" />
+	
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_weight="1"
+        android:onClick="onClick3"
+        android:text="취소" />
+</LinearLayout>
+
+</LinearLayout>
+
